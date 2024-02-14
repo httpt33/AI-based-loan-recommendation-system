@@ -3,7 +3,7 @@ from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
 personal_model= predict.load_personal_model()
-home_model= predict.load_home_model()
+educational_model= predict.load_home_model()
 
 
 app = Flask(__name__)
