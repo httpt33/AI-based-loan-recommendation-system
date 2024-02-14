@@ -14,14 +14,26 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def index():
     return 'Server is up'
 
-@app.route('/loan/personal', methods=['POST', 'GET'])
+@app.route('/loan/personal', methods=['POST'])
 @cross_origin()
 def handle_info():
     info={
         #'Education': request.form[Education], 
         # ADD ALL THE INFO
     }
-    return 'hello'
+
+    return {"prediction": predict.can_get_(personal_model, predict.preprocesspersonal(info))}
+
+@app.route('/loan/education', methods=['POST'])
+@cross_origin()
+def handle_info_edu():
+    info={
+        #'Education': request.form[Education], 
+        # ADD ALL THE INFO
+    }
+
+    return {"prediction": predict.can_get_(educational_model, predict.preprocessedu(info))}
+    
  
 # main driver function
 if __name__ == '__main__':
