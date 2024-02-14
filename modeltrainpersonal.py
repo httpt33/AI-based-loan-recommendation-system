@@ -63,7 +63,7 @@ loan_train[columns_to_scale] = standardScaler.fit_transform(loan_train[columns_t
 
 #CREATING TRAIN AND TEST DATASET
 y = loan_train['Loan_Status']
-X = loan_train.drop(['Loan_Status', 'Loan_ID', 'Dependents'], axis = 1)
+X = loan_train.drop(['Loan_Status', 'Loan_ID'], axis = 1)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
 #X_train.shape, X_test.shape: (491, 20), (123, 20)
 
