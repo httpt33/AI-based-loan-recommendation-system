@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/personal.css">
 </head>
 <body>
+    
     <header>
         <h1>AI Loan Recommendation System</h1>
     </header>
@@ -38,7 +39,7 @@
                 
                
             <h2>Loan Recommendation</h2>
-            <form id="recommendation-form">
+            <form id="recommendation-form" action="http://localhost:5000/loan/personal" method="POST">
                 <label for="monthly-income">Monthly Income:</label>
                 <input type="number" id="monthly-income" required>
                 <br/>
@@ -89,7 +90,7 @@
             <label for="Bank Asset Value">Bank Asset Value</label>
             <input type="number" required>
             <br/>
-            <button type="button" onclick="getLoanRecommendation()">Get Loan Recommendation</button>
+            <button type="submit">Get Loan Recommendation</button>
 
                 
                 
@@ -110,9 +111,9 @@
                 <br/>
                 <div class="result" id="emi-result"></div>
             </form>
+            <script src="./scripts/submit.js"></script>
     
             <center><img src="https://protium.co.in/wp-content/uploads/2023/07/How-does-the-repo-rate-affect-your-finances.png"/></center>
-    </script>
 
 </body>
 </html>

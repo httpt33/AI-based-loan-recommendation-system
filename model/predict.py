@@ -1,3 +1,8 @@
+import joblib
+import sklearn
+import numpy
+import pandas
+
 def preprocesspersonal(loan_train):
     # One-hot encoding categorical columns
     loan_train = pd.get_dummies(loan_train, columns=['Education', 'Self_Employed', 'Dependents'])
@@ -20,10 +25,10 @@ def preprocessedu(loan_train):
     return loan_train
 
 def load_home_model():
- return joblib.load("filename")
+ return joblib.load("./model/final_model_edu.joblib")
 
 def load_personal_model():
- return joblib.load("filename") 
+ return None #joblib.load("./model/final_model_personal.joblib") 
 
 def can_get_(model,data):
     return model.predict(data)
