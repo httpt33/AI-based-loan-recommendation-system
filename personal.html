@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Loan Recommendation System</title>
+
+    <link rel="stylesheet" href="personal.css">
+</head>
+<body>
+    <header>
+        <h1>AI Loan Recommendation System</h1>
+    </header>
+        <!-- User Profile Module -->
+        <div id="user-profile">
+            <h2>User Profile</h2>
+            <form id="registration-form">
+                <label for="Name">Name:</label>
+                <input type="Name" id="Name" required>
+                <br/>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" required>
+                <br/>
+                
+                <label for="pan">PAN Number:</label>
+                <input type="text" id="pan" required>
+                <br/>
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" required>
+                <br/>
+                <label for="otp">OTP:</label>
+                <input type="text" id="otp" required>
+              <button type="button" onclick="loginUser()">Login</button>
+              <br/>
+
+              
+            </form>
+                
+               
+            <h2>Loan Recommendation</h2>
+            <form id="recommendation-form">
+                <label for="monthly-income">Monthly Income:</label>
+                <input type="number" id="monthly-income" required>
+                <br/>
+                <label for="cibil-score">CIBIL Score:</label>
+                <input type="number" id="cibil-score" required>
+                <br/>
+
+
+                <label for="Education">Education:</label>
+            <select id="edu" name="edu">
+                <option value="" disabled selected>Select</option>
+                <option value="Graduated">Graduated</option>
+                <option value="Not Graduated">Not Graduated</option>
+                <!-- Add more options as needed -->
+            </select>
+            <br/>
+            
+            <label for="Self Employed">Self Employed:</label>
+            <select id="employed" name="employed">
+                <option value="" disabled selected>Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <!-- Add more options as needed -->
+            </select>
+            <br/>
+
+                <label for="Loan Amount"> Loan Amount</label>
+                <input type="number"  required> 
+                <br/>
+
+                <label for="Loan Amount Term">Loan Amount Term</label>
+                <input type="number" required>
+                <br/>
+
+                <label for="Residential Assets Value">Residential Assets Value</label>
+                <input type="number" required>
+                <br/>
+
+                <label for="Commercial Assets Value">Commercial Assets Value</label>
+                <input type="number" required>
+                <br/>
+
+                <label for="Luxury Assets Value">Luxury Assets Value</label>
+                <input type="number" required>
+
+            <br/>
+
+            <label for="Bank Asset Value">Bank Asset Value</label>
+            <input type="number" required>
+            <br/>
+            <button type="button" onclick="getLoanRecommendation()">Get Loan Recommendation</button>
+
+                
+                
+                <div class="result" id="recommendation-result"></div>
+            </form>
+            <h2>Loan Calculator</h2>
+            <form id="calculator-form">
+                <label for="loan-amount">Loan Amount:</label>
+                <input type="number" id="loan-amount" required>
+                <br/>
+                <label for="interest-rate">Interest Rate (%):</label>
+                <input type="number" id="interest-rate" required>
+                <br/>
+                <label for="loan-tenure">Loan Tenure (months):</label>
+                <input type="number" id="loan-tenure" required>
+                
+                <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+                <br/>
+                <div class="result" id="emi-result"></div>
+            </form>
+    
+            <center><img src="https://protium.co.in/wp-content/uploads/2023/07/How-does-the-repo-rate-affect-your-finances.png"/></center>
+    </script>
+
+</body>
+</html>
