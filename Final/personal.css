@@ -1,0 +1,107 @@
+.body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+
+   
+}
+
+header {
+    color: #fff;
+    padding: 0px;
+    text-align: center;
+}
+
+
+label {
+    
+    margin-bottom: 0%;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align:center;
+    display:block;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    
+}
+
+
+.result {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+#registration-form{
+    padding:20px;
+}
+label{
+padding :10px;
+text-align:center;
+font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+color: #454545;
+}
+
+input{
+ text-align: left;
+ margin:5px;
+ font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ color: #454545;
+}
+   /* background: linear-gradient(224deg, #d6f89e 0%, #e0f1b6 35.93%, #f3e4e5 57.65%, #f6e1ea 72.77%, #f9da83 100%); */
+h1{
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #454545;
+}
+h2{
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #454545;
+} 
+#user-profile{
+    text-align:left;
+   
+}
+p{
+        float: left;
+        margin-right: 20px;
+         /* Optional: Add some margin to create space between the image and other content */
+    }
+    img{
+        float:right;
+        width:100px;
+        height:100px;
+        margin-right: 400px;
+        
+
+    }
+    #edu{
+        text-align: center;
+        margin:5px;
+        display: block;
+        width:188px;
+        height:37px;
+    }
+    #employed,#gender,#married{
+        text-align: center;
+        margin:5px;
+        display: block;
+        width:188px;
+        height:37px;
+    }
