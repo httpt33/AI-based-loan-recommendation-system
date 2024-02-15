@@ -1,72 +1,65 @@
-from flask import Flask, render_template,url_for, request
-import flask_sqlalchemy
-from sklearn.externals import joblib
-import numpy as np
+from flask import Flask, request, render_template
+from flask_sqlalchemy import SQLAlchemy
+
 app = Flask(__name__)
 
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'fetch.php'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+db = SQLAlchemy(app)
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    phone = db.Column(db.String(20))
+    pan = db.Column(db.String(20))
+    email = db.Column(db.String(100))
+    otp = db.Column(db.String(10))
+
+
+class LoanRecommendation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    monthly_income = db.Column(db.Float)
+    cibil_score = db.Column(db.Integer)
+    education = db.Column(db.String(50))
+    employed = db.Column(db.String(3))
+    loan_amount = db.Column(db.Float)
+    loan_amount_term = db.Column(db.Integer)
+    residential_assets_value = db.Column(db.Float)
+    commercial_assets_value = db.Column(db.Float)
+    luxury_assets_value = db.Column(db.Float)
+    bank_asset_value = db.Column(db.Float)
+
+
+class LoanCalculation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    loan_amount = db.Column(db.Float)
+    interest_rate = db.Column(db.Float)
+    loan_tenure = db.Column(db.Integer)
+    emi = db.Column(db.Float)
+
 @app.route('/')
+def index():
+    return render_template('edu.html')
 
-def home():
-	return render_template('personal.html')
-@app.route('/prediction', methods = ['POST'])
-def prediction():
-	if request.method == 'POST':
-		gender = request.form['Gender']
-		married = request.form['Status']
-		education = request.form['education']
-		employ = request.form['employ']
-		annual_income = request.form['aincome']
-		Loan_amount = request.form['Lamount']
-		Loan_amount_term = request.form['Lamount_term']
-		credit_history= request.form['credit_history']
-		property = request.form['property_area']
+@app.route('/submit_registration', methods=['POST'])
+def submit_registration():
+    name = request.form['Name']
+    phone = request.form['phone']
+    pan = request.form['pan']
+    email = request.form['login-email']
+    otp = request.form['otp']
+    new_user = User(name=name, phone=phone, pan=pan, email=email, otp=otp)
+    db.session.add(new_user)
+    db.session.commit()
+    return 'Registration submitted successfully.'
 
-	gender = gender.lower()
-	married= married.lower()
-	education = education.lower()
-	employ = employ.lower()
-	proper = proper.lower()
-	error = 0
-	if(employ=='yes'):
-		employ = 1
-	else:
-		employ = 0
-	if(gender=='male'):
-		gender = 1
-	else:
-		gender = 0
-	if (married=='married'):
-		married=1
-	else:
-		married=0
-	if (property=='rural'):
-		property=0
-	elif (property=='semiurban'):
-		property=1
-	else:
-		property=2
-	if (education=='graduate'):
-		education=0
-	else:
-		education=1
-	try:
-	
-		annual_income = int(annual_income)
-
-		Loan_amount = int(Loan_amount)
-		Loan_amount_term = int(Loan_amount_term)
-		credit_history = int(credit_history)
-		x_app = np.array([[gender, married, education,employ,annual_income,Loan_amount,Loan_amount_term,credit_history,proper]])
-		model = joblib.load('Forest.pkl')
-		ans = model.predict(x_app)
-		if (ans==1):
-			print("Congratulations your eligble for this Loan")
-		else:
-			print("We sad to inform that your request has not been accepted")
-		return render_template('shit.html', prediction=ans)
-	except ValueError:
-		return render_template('error.html', prediction=1)
-	
+@app.route('/submit_recommendation', methods=['POST'])
+def submit_recommendation():
+    return 'Loan recommendation submitted successfully.'
 
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(debug=True)
