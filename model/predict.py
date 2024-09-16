@@ -1,7 +1,8 @@
 import joblib
 import sklearn
+from sklearn.preprocessing import StandardScaler
 import numpy
-import pandas
+import pandas as pd
 
 def preprocesspersonal(loan_train):
     # One-hot encoding categorical columns

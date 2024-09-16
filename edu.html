@@ -38,7 +38,7 @@
                 
                
             <h2>Loan Recommendation</h2>
-            <form id="recommendation-form">
+            <form id="recommendation-form" action="http://localhost:5000/loan/education">
                 
                 <label for="Applicant Income">Applicant Income:</label>
                 <input type="number" id="Applicant Income" required>
@@ -99,7 +99,7 @@
                 <label for="Property Area">Property Area</label>
                 <input type="number" required>
                 <br/>
-            <button type="button" onclick="getLoanRecommendation()">Get Loan Recommendation</button>
+            <button type="submit">Get Loan Recommendation</button>
 
                 
                 
@@ -122,6 +122,7 @@
                 <br/>
                 <div class="result" id="emi-result"></div>
             </form>
+            <script src="./scripts/submit_edu.js"></script>
     
             <center><img src="https://protium.co.in/wp-content/uploads/2023/07/How-does-the-repo-rate-affect-your-finances.png"/></center>
     </script>
